@@ -38,6 +38,8 @@ func main() {
 	a = *p1 + *p2
 	fmt.Println("*p1と*p2を足したa:", a)
 
+	fmt.Println("*p1: *p1はaの値なので300に変わってる", *p1)
+
 	p2 = p1
 	fmt.Println("p2: p1の値(aのアドレス)を格納", p2)
 	fmt.Println("*p2: ", *p2)
