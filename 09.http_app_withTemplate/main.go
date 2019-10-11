@@ -23,6 +23,7 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
+// テンプレートとしてhtmlファイルを格納
 var templates = template.Must(template.ParseFiles("edit.html", "view.html"))
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
@@ -72,7 +73,8 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 			http.NotFound(w, r)
 			return
 		}
-		// fnが各handlerを表す、m[]がtitle
+		// fnが各handlerを表す、
+		// FindStringSubmatchが格納されてるmは[]で番号指定することでURLの中から必要な箇所を取得できる
 		fn(w, r, m[2])
 	}
 }

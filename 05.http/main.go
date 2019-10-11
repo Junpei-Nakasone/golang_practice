@@ -30,7 +30,7 @@ func main() {
 	reference, _ := url.Parse("/test?name=user1")
 	// baseにResolveReference関数を使ってreferenceを追加する, stringはなくてもTERMINALでは出力される、WEB上では変な挙動になる？
 	endpoint := base.ResolveReference(reference).String()
-	// basenの後ろにreferenceが追加されて表示される
+	// baseの後ろにreferenceが追加されて表示される
 	fmt.Println(endpoint)
 
 	////////////Advanced//////////
