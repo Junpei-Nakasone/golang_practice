@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// interfaceは実装するコードは書かずにメソッド名のみ宣言
 type Human interface {
 	Say()
 }
