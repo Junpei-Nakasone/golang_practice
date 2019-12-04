@@ -39,4 +39,8 @@ func main() {
 	var mike Human = &Person{"Mike"}
 	// Humanという構造体にPersonを入れたらSay()を持ってないといけない
 	DriveCar(mike)
+
+	var x Human = &Person{"X"}
+
+	DriveCar(x)
 }
