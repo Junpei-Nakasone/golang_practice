@@ -3,17 +3,20 @@ package main
 import "fmt"
 
 func main() {
-	// double型をint型に変換して出力
-	a := 4.12
+	var i int = 100
+	var j int = 200
+	var p1 *int
+	var p2 *int
 
-	b := int(a)
+	p1 = &i
+	p1value := p1
+	fmt.Println(p1value)
 
-	fmt.Println(b)
+	p2 = &j
 
-	m := map[string]int{
-		"john": 20,
-		"chad": 11,
-	}
+	i = *p1 + *p2
+	p2 = p1
 
-	fmt.Printf("%T %v\n", m, m)
+	j = *p2 + i
+	fmt.Println(j)
 }
