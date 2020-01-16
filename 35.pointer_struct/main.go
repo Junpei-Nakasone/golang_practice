@@ -2,34 +2,29 @@ package main
 
 import "fmt"
 
-type Human interface {
-	Say() string
-}
-
-type Person struct {
-	Name string
-}
-type Person2 struct {
+type User struct {
 	Name string
 }
 
-func (p *Person) Say() string {
-	p.Name = "Mr." + p.Name
-	fmt.Println(p.Name)
-	return p.Name
+// 値関数で振る舞いを定義
+func (u User) Greeting(msg string) {
+	fmt.Println("User.Name(関数内):", &(u.Name))
 }
 
-func DriveCar(human Human) {
-	if human.Say() == "Mr.Mike" {
-		fmt.Println("OK")
-	} else {
-		fmt.Println("NO")
-	}
+// ポインタ関数で振る舞いを定義
+func (u *User) Greeting2(msg string) {
+	fmt.Println("User.Name(関数内):", &(u.Name))
 }
 
 func main() {
 
-	var mike Human = &Person{Name: "Mike"}
-	// mike.Say()
-	DriveCar(mike)
+	user := User{"Yohei"}
+
+	// 値関数の呼び出し
+	fmt.Println("User.Name:", &(user.Name)) // User.Name: 0x1040c128
+	user.Greeting("Hello")                  // User.Name(関数内): 0x1040c138（違う！！）
+
+	// ポインタ関数の呼び出し
+	fmt.Println("User.Name:", &(user.Name)) // User.Name: 0x1040c128
+	user.Greeting2("Hello")                 // User.Name(関数内): 0x1040c128（同じ!!）
 }
