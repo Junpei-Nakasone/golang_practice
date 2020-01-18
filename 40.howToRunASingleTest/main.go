@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// go testコマンドだとどのテストが実行されているか特定しにくいので
+// go test -run <TEST名>で実行する
+
 func main() {
 	fmt.Printf("add: %d\n", add(2, 6))
 	fmt.Printf("sub: %d\n", sub(2, 6))
