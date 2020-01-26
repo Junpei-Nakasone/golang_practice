@@ -8,27 +8,28 @@ func WordCount(s string) map[string]int {
 
 	// return map[string]int{"x": 1}
 	// return map[string]int{s: len(s)}
-	// m := make(map[string]int)
 
-	// for _, w := range strings.Fields(s){
-	// 	m[w]++
-	// }
-	// return m
+	m := make(map[string]int)
 
-	words := strings.Fields(s)
-	m := map[string]int{}
-	count := 0
-
-	for _, v1 := range words {
-		for _, v2 := range words {
-			if v1 == v2 {
-				count++
-			}
-		}
-		m[v1] = count
-		count = 0
+	for _, w := range strings.Fields(s) {
+		m[w]++
 	}
 	return m
+
+	// words := strings.Fields(s)
+	// m := map[string]int{}
+	// count := 0
+
+	// for _, v1 := range words {
+	// 	for _, v2 := range words {
+	// 		if v1 == v2 {
+	// 			count++
+	// 		}
+	// 	}
+	// 	m[v1] = count
+	// 	count = 0
+	// }
+	// return m
 
 }
 
@@ -65,9 +66,10 @@ var testCases = []struct {
 	in   string
 	want map[string]int
 }{
-	{"I am learning Go!", map[string]int{
-		"I": 1, "am": 1, "learning": 1, "Go!": 1,
-	}},
+	{"I am learning Go!",
+		map[string]int{
+			"I": 1, "am": 1, "learning": 1, "Go!": 1,
+		}},
 	{"The quick brown fox jumped over the lazy dog.", map[string]int{
 		"The": 1, "quick": 1, "brown": 1, "fox": 1, "jumped": 1,
 		"over": 1, "the": 1, "lazy": 1, "dog.": 1,
