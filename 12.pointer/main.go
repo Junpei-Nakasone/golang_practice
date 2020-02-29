@@ -13,7 +13,8 @@ func main() {
 	fmt.Println(&n) // メモリのアドレスが表示される
 
 	// 変数pに*でintのポインタ型にして、&nを格納する
-	var p *int = &n
+	var p *int
+	p = &n
 
 	// メモリのアドレスが表示される
 	fmt.Println(p)
