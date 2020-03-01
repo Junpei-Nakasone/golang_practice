@@ -2,21 +2,44 @@ package main
 
 import "fmt"
 
+// type Student struct {
+// 	Name string
+// 	Data []data
+// }
+
+type WhereList struct {
+	column   string
+	operator string
+	value    string
+}
+
+// data1 := data{
+// 	study:  "good",
+// 	sports: "good",
+// }
+
+// 整形処理
+func test(column, operator, value string) string {
+	return column + " " + operator + " " + value
+}
+
 func main() {
-	var i int = 100
-	var j int = 200
-	var p1 *int
-	var p2 *int
+	res := test("staff_id", "=", "1")
+	fmt.Println(res)
+	// var data2 []data
+	// data2 = append(data2, data1)
 
-	p1 = &i
-	p1value := p1
-	fmt.Println(p1value)
+	// data3 := data{
+	// 	study:  "nice",
+	// 	sports: "nice",
+	// }
 
-	p2 = &j
+	// data2 = append(data2, data3)
 
-	i = *p1 + *p2
-	p2 = p1
+	// user := Student{
+	// 	Name: "User1",
+	// 	Data: data2,
+	// }
 
-	j = *p2 + i
-	fmt.Println(j)
+	// fmt.Println(user)
 }
